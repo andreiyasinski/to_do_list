@@ -1,21 +1,32 @@
 var addButton = document.getElementById("add");
+var prioritySelector = document.getElementById("select");
 var inputTask = document.getElementById("new-task");
+var description = document.getElementById("description");
 var unfinishedTasks = document.getElementById("unfinished-tasks");
 var finishedTasks = document.getElementById("finished-tasks");
+var addForm = document.getElementById("add-form");
 
-function createNewElement(task, finished) {
+function createNewElement(task, isFinished, priorityValue, descriptionText) {
   var listItem = document.createElement("li");
   var checkbox = document.createElement("button");
   listItem.className = "list-item"
   
   checkbox.className = "material-icons checkbox";
   //finished ? checkbox.innerHTML = "<i class='material-icons'>check_box</i>" : checkbox.innerHTML = "<i class='material-icons'>check_box_outline_blank</i>";
-  checkbox.innerHTML = finished ?  "<i class='material-icons'>check_box</i>" : "<i class='material-icons'>check_box_outline_blank</i>";
+  checkbox.innerHTML = isFinished ?  "<i class='material-icons'>check_box</i>" : "<i class='material-icons'>check_box_outline_blank</i>";
   
   var label = document.createElement("label");
   label.innerText = task;
   var input = document.createElement("input");
   input.type = "text";
+  var textarea = document.createElement("textarea");
+  textarea.innerText = descriptionText;
+  textarea.id = "taskDesc";
+  textarea.rows = "5";
+  textarea.style.display = "none";
+  var priority = document.createElement("div");
+  priority.className = "priority";
+  priority.style.background = priorityValue;
   var editButton = document.createElement("button");
   editButton.className = "material-icons edit";
   editButton.innerHTML = "<i class='material-icons'>edit</i>";
@@ -26,24 +37,29 @@ function createNewElement(task, finished) {
   listItem.appendChild(checkbox);
   listItem.appendChild(label);
   listItem.appendChild(input);
+  listItem.appendChild(textarea);
+  listItem.appendChild(priority);
   listItem.appendChild(editButton);
   listItem.appendChild(deleteButton);
 
   return listItem;
 };
 
-function addTask() {
+function addTask(e) {
+  e.preventDefault();
   if(inputTask.value.trim()) {
-    var listItem = createNewElement(inputTask.value.trim(), false);
+    var color = prioritySelector.value;
+    var listItem = createNewElement(inputTask.value.trim(), false, color, description.value);
     //unfinishedTasks.appendChild(listItem);
     unfinishedTasks.insertBefore(listItem, unfinishedTasks.firstChild);
     bindTaskEvents(listItem, finishTask);
     inputTask.value = "";
+    description.value = "";
   }
   save();
 };
 
-addButton.addEventListener("click", addTask);
+addForm.addEventListener("submit", addTask);
 
 function deleteTask() {
   var listItem = this.parentNode;
@@ -115,11 +131,25 @@ function save() {
   var finishedTasksArr = [];
 
   for (var i = 0; i < unfinishedTasks.children.length; i++) {
-    unfinishedTasksArr.push(unfinishedTasks.children[i].getElementsByTagName("label")[0].innerText);
+    unfinishedTasksArr.push(
+      {
+        label: unfinishedTasks.children[i].getElementsByTagName("label")[0].innerText,
+        color: unfinishedTasks.children[i].getElementsByClassName("priority")[0].style.background,
+        isFinished: false,
+        taskDesc: unfinishedTasks.children[i].getElementsByTagName("textarea")[0].value
+      }
+    );
   }
 
   for (var i = 0; i < finishedTasks.children.length; i++) {
-    finishedTasksArr.push(finishedTasks.children[i].getElementsByTagName("label")[0].innerText);
+    finishedTasksArr.push(
+      {
+        label: finishedTasks.children[i].getElementsByTagName("label")[0].innerText,
+        color: finishedTasks.children[i].getElementsByClassName("priority")[0].style.background,
+        isFinished: true,
+        taskDesc: finishedTasks.children[i].getElementsByTagName("textarea")[0].value
+      }
+    );
   }
 
   localStorage.removeItem("todo");
@@ -137,14 +167,14 @@ function load() {
 var data = load();
 
 data.unfinishedTasks.forEach(item => {
-  var listItem = createNewElement(item, false);
+  var listItem = createNewElement(item.label, item.isFinished, item.color, item.taskDesc);
   unfinishedTasks.appendChild(listItem);
   bindTaskEvents(listItem, finishTask);
   // console.log(listItem);
 });
 
 data.finishedTasks.forEach(item => {
-  var listItem = createNewElement(item, true);
+  var listItem = createNewElement(item.label, item.isFinished, item.color, item.taskDesc);
   finishedTasks.appendChild(listItem);
   bindTaskEvents(listItem, unfinishTask);
 });

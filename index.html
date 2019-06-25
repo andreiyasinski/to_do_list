@@ -9,16 +9,28 @@
   <link rel="stylesheet" href="./css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Dosis:300&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700&display=swap&subset=cyrillic" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+  
 </head>
 <body>
   <div id="root">
     <h1 class="title">to do list</h1>
     <div class="container">
-      <h3>Добавить дело</h3>
-      <div class="add-wrapper">
-        <input type="text" id="new-task">
-        <button id="add">Добавить</button>
-      </div>
+      <form id="add-form">
+        <h3>Добавить дело</h3>
+        <div class="add-wrapper">
+          <div class="add-task">
+            <input type="text" id="new-task" placeholder="Я хочу сделать...">
+            <select id="select">
+              <option value="#3aa957" selected>Low</option> 
+              <option value="#E4DD1B">Medium</option>
+              <option value="#bd2d4b">High</option>
+            </select>
+            <button id="add">Добавить</button>
+          </div>
+          <textarea id="description" rows="5" placeholder="Описание..."></textarea>
+        </div>
+      </form>
       <h3>Список дел</h3>
       <ul id="unfinished-tasks">
         
@@ -27,6 +39,15 @@
       <ul id="finished-tasks">
         
       </ul>
+    </div>
+    <div class="modal-form-wrapper">
+      <form>
+        <h3>Задача</h3>
+        <input id="modal-form-text" type="text">
+        <h3>Описание</h3>
+        <textarea id="modal-form-description" rows="7"></textarea>
+        <button id="modal-form-save">Сохранить</button>
+      </form>
     </div>
   </div>
   <script src="./js/index.js"></script>

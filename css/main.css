@@ -21,7 +21,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    max-width: 900px;
     margin: 10px auto;
     border: 1px solid #bdb9b9;
     border-radius: 5px;
@@ -44,31 +44,48 @@ li, h3 {
     list-style: none;
 } */
 
-.checkbox, .delete, .edit, .save {
-    margin: 0 10px;
+#select {
+    margin-left: 10px;
+    border-radius: 6px;
 }
 
-input, button {
+.priority {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin: 0 10px;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+}
+
+input, #add {
     outline: none;
 }
 
-button {
+#add {
     background: none;
     border: 0px;
     color: #888;
     font-size: 15px;
-    font-family: sans-serif;
+    font-family: 'Exo 2', sans-serif;
     cursor: pointer;
-    float: right;
     margin: 8px auto;
 }
 
-button:hover {
+.edit, .delete, .checkbox, .save {
+    background: none;
+    border: 0px;
+    color: #888;
+    cursor: pointer;
+    margin: 0 10px;
+}
+ 
+#add:hover {
     color: black;
 }
 
 #add:hover {
-    border-radius: 14px;
+    border-radius: 6px;
     border: 1px solid #ddd;
 }
 
@@ -79,10 +96,10 @@ button:hover {
 }
 
 h3 {
-    color: black;
+    color: rgba(88, 34, 34, 0.78);
     font-weight: bold;
     font-size: 15px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #907d7d;
     padding: 10px 0;
     margin: 0 0 10px;
     text-transform: uppercase;
@@ -97,7 +114,7 @@ input[type="text"] {
     border: 1px solid #ddd;
     background: #fff;
     border-radius: 6px;
-    font-family: sans-serif;
+    font-family: 'Exo 2', sans-serif;
     color: #888;
 }
 
@@ -110,8 +127,19 @@ label[for='new-task'] {
     margin: 0 0 20px;
 }
 
-.add-wrapper {
+.add-task {
     display: flex;
+}
+
+#description {
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 18px;
+    font-family: sans-serif;
+    padding: 8px;
+    resize: vertical;
 }
 
 #new-task {
@@ -127,6 +155,7 @@ label[for='new-task'] {
     border-bottom: 1px solid #eee;
     width: 100%;
     display: flex;
+    align-items: center;
 }
 
 .list-item > input[type="checkbox"] {
@@ -140,7 +169,7 @@ label[for='new-task'] {
     font-size: 18px;
     line-height: 40px;
     width: 100%;
-    padding: 1px 0 0 11px;
+    padding: 1px 0 1px 9px;
 }
 
 .list-item > input[type="text"] {
@@ -170,4 +199,31 @@ label[for='new-task'] {
 
 button.checkbox {
     float: left;
+}
+
+.modal-form-wrapper {
+    width: 700px;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+    background: #fdfdfd;
+}
+
+#modal-form-text, #modal-form-description {
+    width: 100%;
+}
+
+#modal-form-save {
+    width: 100%;
+    padding: 10px;
+    background: rgba(113, 39, 39, 0.15);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: 0.5s ease;
+}
+
+#modal-form-save:hover {
+    border: 1px solid black;
 }
