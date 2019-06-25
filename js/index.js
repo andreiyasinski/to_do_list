@@ -155,8 +155,8 @@ function save() {
   localStorage.removeItem("todo");
 
   localStorage.setItem("todo", JSON.stringify({
-    unfinishedTasks: unfinishedTasksArr,
-    finishedTasks: finishedTasksArr
+    unfinishedItems: unfinishedTasksArr,
+    finishedItems: finishedTasksArr
   }));
 }
 
@@ -166,14 +166,14 @@ function load() {
 
 var data = load();
 
-data.unfinishedTasks.forEach(item => {
+data.unfinishedItems.forEach(item => {
   var listItem = createNewElement(item.label, item.isFinished, item.color, item.taskDesc);
   unfinishedTasks.appendChild(listItem);
   bindTaskEvents(listItem, finishTask);
   // console.log(listItem);
 });
 
-data.finishedTasks.forEach(item => {
+data.finishedItems.forEach(item => {
   var listItem = createNewElement(item.label, item.isFinished, item.color, item.taskDesc);
   finishedTasks.appendChild(listItem);
   bindTaskEvents(listItem, unfinishTask);
