@@ -6,6 +6,14 @@ var unfinishedTasks = document.getElementById("unfinished-tasks");
 var finishedTasks = document.getElementById("finished-tasks");
 var addForm = document.getElementById("add-form");
 
+var modalFormText = document.getElementById("modal-form-text");
+var modalFormSelect = document.getElementById("modal-form-select");
+var modalFormDescription = document.getElementById("modal-form-description");
+var modalFormSave = document.getElementById("modal-form-save");
+
+var editingTask;
+
+
 function createNewElement(task, isFinished, priorityValue, descriptionText) {
   var listItem = document.createElement("li");
   var checkbox = document.createElement("button");
@@ -70,24 +78,55 @@ function deleteTask() {
 
 function editTask() {
   var editButton = this;
+  editingTask = this.parentNode;
   var listItem = this.parentNode;
   var label = listItem.querySelector("label");
-  var input = listItem.querySelector("input[type=text]");
-  var containsClass = listItem.classList.contains("editMode");
 
-  if(containsClass) {
-    label.innerText = input.value;
-    editButton.className = "materials-icons edit";
-    editButton.innerHTML = "<i class='material-icons'>edit</i>"
-    save();
-  } else {
-    input.value = label.innerText;
-    editButton.className = "materials-icons save";
-    editButton.innerHTML = "<i class='material-icons'>save</i>";
-  }
+  var textarea = listItem.querySelector("textarea");
+  var priority = listItem.querySelector(".priority");
 
-  listItem.classList.toggle("editMode");
+  //var input = listItem.querySelector("input[type=text]");
+  //var containsClass = listItem.classList.contains("editMode");
+
+  modalFormText.value = label.innerText;
+  modalFormDescription.value = textarea.value;
+
+  // for (let i = 0; i < modalFormSelect.children.length; i++) {
+  //   if(modalFormSelect.children[i].value == priority.style.background) {
+  //     modalFormSelect.children[i].selected = true;
+  //   }
+  // }
+
+  modalFormSelect.value = priority.style.background;
+  
+  // if(containsClass) {
+  //   label.innerText = input.value;
+  //   editButton.className = "materials-icons edit";
+  //   editButton.innerHTML = "<i class='material-icons'>edit</i>"
+  //   save();
+  // } else {
+  //   input.value = label.innerText;
+  //   editButton.className = "materials-icons save";
+  //   editButton.innerHTML = "<i class='material-icons'>save</i>";
+  // }
+
+  // listItem.classList.toggle("editMode");
 };
+
+function saveTask(e) {
+  e.preventDefault();
+  if(editingTask) {
+    var label = editingTask.querySelector("label");
+    var textarea = editingTask.querySelector("textarea");
+    var priority = editingTask.querySelector(".priority");
+    label.innerText = modalFormText.value;
+    textarea.value = modalFormDescription.value;
+    priority.style.background = modalFormSelect.value;
+    save();
+  }
+}
+
+modalFormSave.addEventListener("click", saveTask)
 
 function finishTask() {
   var listItem = this.parentNode;
