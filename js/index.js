@@ -24,8 +24,8 @@ function createNewElement(task, isFinished, priorityValue, descriptionText) {
   
   var label = document.createElement("label");
   label.innerText = task;
-  var input = document.createElement("input");
-  input.type = "text";
+  // var input = document.createElement("input");
+  // input.type = "text";
   var textarea = document.createElement("textarea");
   textarea.innerText = descriptionText;
   textarea.id = "taskDesc";
@@ -43,7 +43,7 @@ function createNewElement(task, isFinished, priorityValue, descriptionText) {
 
   listItem.appendChild(checkbox);
   listItem.appendChild(label);
-  listItem.appendChild(input);
+  // listItem.appendChild(input);
   listItem.appendChild(textarea);
   listItem.appendChild(priority);
   listItem.appendChild(editButton);
@@ -76,7 +76,7 @@ function deleteTask() {
 };
 
 function editTask() {
-  var editButton = this;
+  //var editButton = this;
   editingTask = this.parentNode;
   var listItem = this.parentNode;
   var label = listItem.querySelector("label");

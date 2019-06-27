@@ -153,12 +153,12 @@ label[for='new-task'] {
     align-items: center;
 }
 
-.list-item > input[type="checkbox"] {
+/* .list-item > input[type="checkbox"] {
     margin: 0 10px;
     position: relative;
     top: 15px;
     transform: scale(1.5);
-}
+} */
 
 .list-item > label {
     font-size: 18px;
@@ -169,9 +169,9 @@ label[for='new-task'] {
     text-overflow: ellipsis;
 }
 
-.list-item > input[type="text"] {
+/* .list-item > input[type="text"] {
     width: 100%;
-}
+} */
 
 .delete:hover {
     color: #CF2323;
@@ -182,21 +182,17 @@ label[for='new-task'] {
     color: lightgray;
 }
 
-.list-item input[type=text] {
+/* .list-item input[type=text] {
     display: none;
-}
+} */
 
-.list-item.editMode input[type=text] {
+/* .list-item.editMode input[type=text] {
     display: block;
 }
 
 .list-item.editMode label {
     display: none;
-}
-
-button.checkbox {
-    float: left;
-}
+} */
 
 .modal-form-wrapper {
     max-width: 700px;
