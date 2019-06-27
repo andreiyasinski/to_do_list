@@ -6,10 +6,10 @@ var unfinishedTasks = document.getElementById("unfinished-tasks");
 var finishedTasks = document.getElementById("finished-tasks");
 var addForm = document.getElementById("add-form");
 
-var modalFormText = document.getElementById("modal-form-text");
-var modalFormSelect = document.getElementById("modal-form-select");
-var modalFormDescription = document.getElementById("modal-form-description");
-var modalFormSave = document.getElementById("modal-form-save");
+var editFormText = document.getElementById("edit-form-text");
+var editFormSelect = document.getElementById("edit-form-select");
+var editFormDescription = document.getElementById("edit-form-description");
+var editFormSave = document.getElementById("edit-form-save");
 
 var editingTask;
 
@@ -77,6 +77,7 @@ function deleteTask() {
 
 function editTask() {
   //var editButton = this;
+  showEditForm("block");
   editingTask = this.parentNode;
   var listItem = this.parentNode;
   var label = listItem.querySelector("label");
@@ -87,16 +88,16 @@ function editTask() {
   //var input = listItem.querySelector("input[type=text]");
   //var containsClass = listItem.classList.contains("editMode");
 
-  modalFormText.value = label.innerText;
-  modalFormDescription.value = textarea.value;
+  editFormText.value = label.innerText;
+  editFormDescription.value = textarea.value;
 
-  // for (let i = 0; i < modalFormSelect.children.length; i++) {
-  //   if(modalFormSelect.children[i].value == priority.style.background) {
-  //     modalFormSelect.children[i].selected = true;
+  // for (let i = 0; i < editFormSelect.children.length; i++) {
+  //   if(editFormSelect.children[i].value == priority.style.background) {
+  //     editFormSelect.children[i].selected = true;
   //   }
   // }
 
-  modalFormSelect.value = priority.style.background;
+  editFormSelect.value = priority.style.background;
   
   // if(containsClass) {
   //   label.innerText = input.value;
@@ -112,20 +113,25 @@ function editTask() {
   // listItem.classList.toggle("editMode");
 };
 
+function showEditForm(state) {
+  document.getElementById("edit-form-wrapper").style.display = state;
+}
+
 function saveTask(e) {
   e.preventDefault();
   if(editingTask) {
     var label = editingTask.querySelector("label");
     var textarea = editingTask.querySelector("textarea");
     var priority = editingTask.querySelector(".priority");
-    label.innerText = modalFormText.value;
-    textarea.value = modalFormDescription.value;
-    priority.style.background = modalFormSelect.value;
+    label.innerText = editFormText.value;
+    textarea.value = editFormDescription.value;
+    priority.style.background = editFormSelect.value;
+    showEditForm("none");
     save();
   }
 }
 
-modalFormSave.addEventListener("click", saveTask)
+editFormSave.addEventListener("click", saveTask)
 
 function finishTask() {
   var listItem = this.parentNode;

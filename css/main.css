@@ -194,27 +194,41 @@ label[for='new-task'] {
     display: none;
 } */
 
-.modal-form-wrapper {
+.edit-form-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: none;
+}
+
+.edit-form {
+    margin: 200px auto;
     max-width: 700px;
     border: 1px solid black;
     border-radius: 3px;
     padding: 10px;
     background: #fdfdfd;
+    z-index: 150;
+    transition: 0.5s;
 }
 
-#modal-form-text, #modal-form-description {
+#edit-form-text, #edit-form-description {
     width: 100%;
     font-size: 18px;
     line-height: 1;
     font-family: 'Exo 2', sans-serif;
 }
 
-#modal-form-description {
+#edit-form-description {
     resize: vertical;
     padding: 8px;
 }
 
-#modal-form-save {
+#edit-form-save {
     width: 100%;
     padding: 10px;
     background: rgba(113, 39, 39, 0.15);
@@ -225,6 +239,6 @@ label[for='new-task'] {
     transition: 0.5s ease;
 }
 
-#modal-form-save:hover {
+#edit-form-save:hover {
     border: 1px solid black;
 }
