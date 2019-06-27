@@ -117,7 +117,7 @@ function showEditForm(state) {
   document.getElementById("edit-form-wrapper").style.display = state;
   document.getElementById("edit-form").style.transform = "translateY(-1000px)";
   if(state == "block") {
-    setInterval(() => {
+    setInterval(function() {
       document.getElementById("edit-form").style.transform = "translateY(0)";
     }, 0);
   };
