@@ -205,7 +205,7 @@ label[for='new-task'] {
     display: none;
 }
 
-.edit-form {
+#edit-form {
     margin: 200px auto;
     max-width: 700px;
     border: 1px solid black;
@@ -214,6 +214,7 @@ label[for='new-task'] {
     background: #fdfdfd;
     z-index: 150;
     transition: 0.5s;
+    transform: translateY(-1000px);
 }
 
 #edit-form-text, #edit-form-description {
