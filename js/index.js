@@ -13,7 +13,6 @@ var modalFormSave = document.getElementById("modal-form-save");
 
 var editingTask;
 
-
 function createNewElement(task, isFinished, priorityValue, descriptionText) {
   var listItem = document.createElement("li");
   var checkbox = document.createElement("button");

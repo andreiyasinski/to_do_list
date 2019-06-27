@@ -68,8 +68,18 @@ input, #add {
     color: #888;
     font-size: 15px;
     font-family: 'Exo 2', sans-serif;
+    font-weight: 900;
     cursor: pointer;
-    margin: 8px auto;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 1px solid rgb(169, 169, 169);;
+    border-radius: 6px;
+    transition: 0.5s ease;
+}
+
+#add:hover {
+    color: black;
+    background: rgba(175, 47, 47, 0.15);
 }
 
 .edit, .delete, .checkbox, .save {
@@ -80,23 +90,8 @@ input, #add {
     margin: 0 10px;
 }
  
-#add:hover {
-    color: black;
-}
-
-#add:hover {
-    border-radius: 6px;
-    border: 1px solid #ddd;
-}
-
-#add {
-    padding: 10px;
-    margin: 0 10px;
-    border: 1px solid #ffffff;
-}
-
 h3 {
-    color: rgba(88, 34, 34, 0.78);
+    color: #548bd6;
     font-weight: bold;
     font-size: 15px;
     border-bottom: 2px solid #907d7d;
@@ -108,7 +103,7 @@ h3 {
 input[type="text"] {
     margin: 1px 0;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 1;
     height: 100%;
     padding: 8px;
     border: 1px solid #ddd;
@@ -136,7 +131,7 @@ label[for='new-task'] {
     border-radius: 6px;
     margin-top: 10px;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 1;
     font-family: sans-serif;
     padding: 8px;
     resize: vertical;
@@ -167,9 +162,11 @@ label[for='new-task'] {
 
 .list-item > label {
     font-size: 18px;
-    line-height: 40px;
+    line-height: 2.2;
     width: 100%;
     padding: 1px 0 1px 9px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .list-item > input[type="text"] {
@@ -202,7 +199,7 @@ button.checkbox {
 }
 
 .modal-form-wrapper {
-    width: 700px;
+    max-width: 700px;
     border: 1px solid black;
     border-radius: 3px;
     padding: 10px;
@@ -211,6 +208,14 @@ button.checkbox {
 
 #modal-form-text, #modal-form-description {
     width: 100%;
+    font-size: 18px;
+    line-height: 1;
+    font-family: 'Exo 2', sans-serif;
+}
+
+#modal-form-description {
+    resize: vertical;
+    padding: 8px;
 }
 
 #modal-form-save {
