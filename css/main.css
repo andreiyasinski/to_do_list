@@ -135,6 +135,7 @@ label[for='new-task'] {
     font-family: sans-serif;
     padding: 8px;
     resize: vertical;
+    max-block-size: 300px;
 }
 
 #new-task {
@@ -227,6 +228,7 @@ label[for='new-task'] {
 #edit-form-description {
     resize: vertical;
     padding: 8px;
+    max-block-size: 300px;
 }
 
 #edit-form-save {
