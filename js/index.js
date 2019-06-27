@@ -81,36 +81,11 @@ function editTask() {
   editingTask = this.parentNode;
   var listItem = this.parentNode;
   var label = listItem.querySelector("label");
-
   var textarea = listItem.querySelector("textarea");
   var priority = listItem.querySelector(".priority");
-
-  //var input = listItem.querySelector("input[type=text]");
-  //var containsClass = listItem.classList.contains("editMode");
-
   editFormText.value = label.innerText;
   editFormDescription.value = textarea.value;
-
-  // for (let i = 0; i < editFormSelect.children.length; i++) {
-  //   if(editFormSelect.children[i].value == priority.style.background) {
-  //     editFormSelect.children[i].selected = true;
-  //   }
-  // }
-
   editFormSelect.value = priority.style.background;
-  
-  // if(containsClass) {
-  //   label.innerText = input.value;
-  //   editButton.className = "materials-icons edit";
-  //   editButton.innerHTML = "<i class='material-icons'>edit</i>"
-  //   save();
-  // } else {
-  //   input.value = label.innerText;
-  //   editButton.className = "materials-icons save";
-  //   editButton.innerHTML = "<i class='material-icons'>save</i>";
-  // }
-
-  // listItem.classList.toggle("editMode");
 };
 
 function showEditForm(state) {
@@ -170,10 +145,6 @@ function bindTaskEvents(listItem, checkboxEvent) {
   checkbox.addEventListener("click", checkboxEvent);
   editButton.addEventListener("click", editTask);
   deleteButton.addEventListener("click", deleteTask);
-
-  // checkbox.onclick = checkboxEvent;
-  // editButton.onclick = editTask;
-  // deleteButton.onclick = deleteTask;
 };
 
 function save() {
