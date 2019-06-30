@@ -85,14 +85,6 @@ function editTask() {
   editFormSelect.value = priority.style.background;
 };
 
-function closeEditForm(e) {
-  if(e.target === e.currentTarget) {
-    showEditForm("none");
-  }
-}
-
-document.getElementById("edit-form-wrapper").addEventListener("click", closeEditForm)
-
 function showEditForm(state) {
   document.getElementById("edit-form-wrapper").style.display = state;
   document.getElementById("edit-form").style.transform = "translateY(-1000px)";
@@ -102,6 +94,14 @@ function showEditForm(state) {
     }, 0);
   };
 }
+
+function closeEditForm(e) {
+  if(e.target === e.currentTarget) {
+    showEditForm("none");
+  }
+}
+
+document.getElementById("edit-form-wrapper").addEventListener("click", closeEditForm)
 
 function saveTask(e) {
   e.preventDefault();
