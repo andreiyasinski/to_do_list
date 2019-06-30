@@ -19,7 +19,7 @@ function createNewElement(task, isFinished, priorityValue, descriptionText) {
   listItem.className = "list-item"
   
   checkbox.className = "material-icons checkbox";
-  checkbox.innerHTML = isFinished ?  "<i class='material-icons'>check_box</i>" : "<i class='material-icons'>check_box_outline_blank</i>";
+  checkbox.innerHTML = isFinished ? "<i class='material-icons'>check_box</i>" : "<i class='material-icons'>check_box_outline_blank</i>";
   
   var label = document.createElement("label");
   label.innerText = task;
