@@ -19,13 +19,10 @@ function createNewElement(task, isFinished, priorityValue, descriptionText) {
   listItem.className = "list-item"
   
   checkbox.className = "material-icons checkbox";
-  //finished ? checkbox.innerHTML = "<i class='material-icons'>check_box</i>" : checkbox.innerHTML = "<i class='material-icons'>check_box_outline_blank</i>";
   checkbox.innerHTML = isFinished ?  "<i class='material-icons'>check_box</i>" : "<i class='material-icons'>check_box_outline_blank</i>";
   
   var label = document.createElement("label");
   label.innerText = task;
-  // var input = document.createElement("input");
-  // input.type = "text";
   var textarea = document.createElement("textarea");
   textarea.innerText = descriptionText;
   textarea.id = "taskDesc";
@@ -87,6 +84,14 @@ function editTask() {
   editFormDescription.value = textarea.value;
   editFormSelect.value = priority.style.background;
 };
+
+function closeEditForm(e) {
+  if(e.target === e.currentTarget) {
+    showEditForm("none");
+  }
+}
+
+document.getElementById("edit-form-wrapper").addEventListener("click", closeEditForm)
 
 function showEditForm(state) {
   document.getElementById("edit-form-wrapper").style.display = state;

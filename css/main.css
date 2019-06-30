@@ -30,20 +30,6 @@ body {
     box-shadow: 0 0 15px rgba(138, 131, 131, 0.5);
 }
 
-/* ul {
-    margin: 5px 0;
-    padding: 0;
-}
-
-li * {
-    float: left;
-}
-
-li, h3 {
-    clear: both;
-    list-style: none;
-} */
-
 #select {
     margin-left: 10px;
     border-radius: 6px;
@@ -110,10 +96,7 @@ input[type="text"] {
     background: #fff;
     border-radius: 6px;
     font-family: 'Exo 2', sans-serif;
-    color: #888;
-}
-
-input[type="text"]:focus {
+    /* color: #888; */
     color: black;
 }
 
@@ -132,10 +115,11 @@ label[for='new-task'] {
     margin-top: 10px;
     font-size: 18px;
     line-height: 1;
-    font-family: sans-serif;
+    font-family: 'Exo 2', sans-serif;
     padding: 8px;
     resize: vertical;
     max-block-size: 300px;
+    min-block-size: 50px;
 }
 
 #new-task {
@@ -170,10 +154,6 @@ label[for='new-task'] {
     text-overflow: ellipsis;
 }
 
-/* .list-item > input[type="text"] {
-    width: 100%;
-} */
-
 .delete:hover {
     color: #CF2323;
 }
@@ -182,18 +162,6 @@ label[for='new-task'] {
     text-decoration: line-through;
     color: lightgray;
 }
-
-/* .list-item input[type=text] {
-    display: none;
-} */
-
-/* .list-item.editMode input[type=text] {
-    display: block;
-}
-
-.list-item.editMode label {
-    display: none;
-} */
 
 .edit-form-wrapper {
     position: fixed;
@@ -228,6 +196,7 @@ label[for='new-task'] {
 #edit-form-description {
     resize: vertical;
     padding: 8px;
+    min-block-size: 50px;
     max-block-size: 300px;
 }
 
