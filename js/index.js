@@ -45,7 +45,7 @@ function createNewElement(task, isFinished, priorityValue, descriptionText) {
   listItem.appendChild(priority);
   listItem.appendChild(editButton);
   listItem.appendChild(deleteButton);
-
+  
   return listItem;
 };
 
@@ -152,6 +152,13 @@ function bindTaskEvents(listItem, checkboxEvent) {
   deleteButton.addEventListener("click", deleteTask);
 };
 
+function cleanFinishedTasks() {
+  finishedTasks.innerHTML = "";
+  save();
+}
+
+document.getElementById("remove-finished-tasks").addEventListener("click", cleanFinishedTasks);
+
 function save() {
   var unfinishedTasksArr = [];
   var finishedTasksArr = [];
@@ -185,6 +192,11 @@ function save() {
     finishedItems: finishedTasksArr
   }));
 }
+
+// function calculateTasks() {
+//   document.getElementById("unfinished-num").innerText = "Number of unfinished tasks: " + unfinishedTasks.children.length;
+//   document.getElementById("finished-num").innerText = "Number of unfinished tasks: " + finishedTasks.children.length;
+// }
 
 function load() {
   return JSON.parse(localStorage.getItem("todo"));

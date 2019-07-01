@@ -57,7 +57,7 @@ input, #add {
     font-weight: 900;
     cursor: pointer;
     padding: 10px 20px;
-    margin: 0 10px;
+    margin-left: 10px;
     border: 1px solid rgb(169, 169, 169);;
     border-radius: 6px;
     transition: 0.4s;
@@ -92,9 +92,9 @@ input[type="text"] {
     line-height: 1;
     height: 100%;
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #afafaf;
     background: #fff;
-    border-radius: 6px;
+    border-radius: 3px;
     font-family: 'Exo 2', sans-serif;
     /* color: #888; */
     color: black;
@@ -111,7 +111,7 @@ label[for='new-task'] {
 
 #description {
     width: 100%;
-    border-radius: 6px;
+    border-radius: 3px;
     margin-top: 10px;
     font-size: 18px;
     line-height: 1;
@@ -213,4 +213,27 @@ label[for='new-task'] {
 
 #edit-form-save:hover {
     border: 1px solid black;
+}
+
+#remove-finished-tasks {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid rgb(73, 72, 72);
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    color: #888;
+    transition: 0.4s;
+}
+
+#remove-finished-tasks:hover {
+    color: #000;
+}
+
+.tasks-num {
+    display: flex;
+    max-width: 900px;
+    justify-content: space-between;
+    margin: 0 auto;
 }
