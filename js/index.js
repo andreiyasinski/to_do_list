@@ -25,7 +25,7 @@ function createNewElement(task, isFinished, priorityValue, descriptionText) {
   label.innerText = task;
   var textarea = document.createElement("textarea");
   textarea.innerText = descriptionText;
-  textarea.id = "taskDesc";
+  textarea.className = "taskDesc";
   textarea.rows = "5";
   textarea.style.display = "none";
   var priority = document.createElement("div");
