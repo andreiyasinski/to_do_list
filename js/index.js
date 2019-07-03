@@ -204,14 +204,14 @@ function load() {
 
 var data = load();
 
-data.unfinishedItems.forEach(item => {
+data.unfinishedItems.forEach(function(item) {
   var listItem = createNewElement(item.label, item.isFinished, item.color, item.taskDesc);
   unfinishedTasks.appendChild(listItem);
   bindTaskEvents(listItem, finishTask);
   // console.log(listItem);
 });
 
-data.finishedItems.forEach(item => {
+data.finishedItems.forEach(function(item) {
   var listItem = createNewElement(item.label, item.isFinished, item.color, item.taskDesc);
   finishedTasks.appendChild(listItem);
   bindTaskEvents(listItem, unfinishTask);
